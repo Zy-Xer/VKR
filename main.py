@@ -14,12 +14,12 @@ import json
 class ChuvashOCRApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Распознаватель и переводчик чувашского текста")  # <--- Изменено название
+        self.root.title("Распознаватель и переводчик чувашского текста") 
         self.root.configure(bg="#fff5e0")
 
         # --- Конфигурация Yandex Cloud Translate API ---
-        self.yandex_cloud_api_token = "AQVNztLmroiJPZB64oECu-kn88IEtv9pPdcZucop"
-        self.yandex_cloud_folder_id = "b1gdnlhorcgmgvp13gr1"
+        self.yandex_cloud_api_token = ""
+        self.yandex_cloud_folder_id = ""
         # --- Конец конфигурации Yandex Cloud Translate API ---
 
         self.root.grid_rowconfigure(0, weight=1)
@@ -82,7 +82,7 @@ class ChuvashOCRApp:
                                           state=tk.DISABLED, **btn_common_config)
         self.recognize_button.pack(side=tk.LEFT, padx=5)
 
-        self.translate_button = tk.Button(self.button_frame, text="🔄 Перевести (YC)",
+        self.translate_button = tk.Button(self.button_frame, text="🔄 Перевести",
                                           command=self.translate_text_action,
                                           bg="#2196f3", fg="white", activebackground="#1976d2",
                                           state=tk.DISABLED, **btn_common_config)
@@ -436,4 +436,5 @@ if __name__ == "__main__":
     root.geometry("800x850")
     root.minsize(600, 650)
     app = ChuvashOCRApp(root)
+
     root.mainloop()
